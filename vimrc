@@ -28,6 +28,8 @@ syntax enable
 autocmd BufReadPost * call jspretmpl#applySyntax('html', 'html`')
 autocmd BufReadPost * call jspretmpl#applySyntax('css', 'css`')
 
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css']
+
 " Tabs
 set showtabline=2
 
