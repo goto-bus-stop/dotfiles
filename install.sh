@@ -7,7 +7,7 @@ mkdir -p ~/.config/i3
 ln -s $basedir/i3/config ~/.config/i3/config
 
 mkdir -p ~/.config/vim
-ln -s $basedir/vimrc ~/.config/vim/.vimrc
+ln -s $basedir/vimrc ~/.vimrc
 
 mkdir -p ~/.config/vifm
 ln -s $basedir/vifmrc ~/.config/vifm/vifmrc
