@@ -1,4 +1,4 @@
-const dzen = require('@statusbar/dzen')
+const i3bar = require('@statusbar/i3bar')
 const date = require('@statusbar/date')
 // const brightness = require('@statusbar/brightness')
 const battery = require('@statusbar/battery')
@@ -19,6 +19,4 @@ bar.use(nowPlaying({
 }))
 bar.use(date())
 
-bar.use(dzen({
-  font: 'open sans-10'
-}))
+bar.use(i3bar())
