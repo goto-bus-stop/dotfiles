@@ -1,9 +1,19 @@
 #!/bin/sh
 
-mkdir -p ~/.config/i3
-mkdir -p ~/.config/vim
-mkdir -p ~/.config/vifm
+basedir=$(pwd)
+target=~/.config
 
-ln -s $(dirname)/i3/config ~/.config/i3/config
-ln -s $(dirname)/vimrc ~/.config/vim/.vimrc
-ln -s $(dirname)/vifmrc ~/.config/vifm/vifmrc
+mkdir -p ~/.config/i3
+ln -s $basedir/i3/config ~/.config/i3/config
+
+mkdir -p ~/.config/vim
+ln -s $basedir/vimrc ~/.config/vim/.vimrc
+
+mkdir -p ~/.config/vifm
+ln -s $basedir/vifmrc ~/.config/vifm/vifmrc
+
+mkdir -p ~/.config/statusbar
+ln -s $basedir/statusbar/index.js ~/.config/statusbar/index.js
+pushd $basedir/statusbar
+npm install
+popd
