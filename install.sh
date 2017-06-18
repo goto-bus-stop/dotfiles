@@ -6,6 +6,9 @@ target=~/.config
 mkdir -p ~/.config/i3
 ln -s $basedir/i3/config ~/.config/i3/config
 
+mkdir -p ~/.config/dunst
+ln -s $basedir/dunstrc ~/.config/dunst/dunstrc
+
 mkdir -p ~/.config/vim
 ln -s $basedir/vimrc ~/.vimrc
 
