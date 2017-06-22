@@ -15,6 +15,9 @@ ln -s $basedir/vimrc ~/.vimrc
 mkdir -p ~/.config/vifm
 ln -s $basedir/vifmrc ~/.config/vifm/vifmrc
 
+mkdir -p ~/.config/mpv
+ln -s $basedir/mpv/mpv.conf ~/.config/mpv/mpv.conf
+
 mkdir -p ~/.config/statusbar
 ln -s $basedir/statusbar/index.js ~/.config/statusbar/index.js
 pushd $basedir/statusbar
