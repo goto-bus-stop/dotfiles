@@ -8,7 +8,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Plug 'valloric/youcompleteme'
 Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Quramy/vim-js-pretty-template'
 
