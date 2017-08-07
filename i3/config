@@ -183,8 +183,8 @@ exec --no-startup-id mpdscribble --conf ~/.config/mpd/mpdscribble.conf
 # ==================
 
 # audio keys
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioPrev exec "mpc prev"
