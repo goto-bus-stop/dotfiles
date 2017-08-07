@@ -176,7 +176,6 @@ exec setxkbmap -layout us,us -variant dvp, -option grp:alt_shift_toggle -option 
 
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id redshift
-exec --no-startup-id thunar --daemon
 exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 exec --no-startup-id mpdscribble --conf ~/.config/mpd/mpdscribble.conf
 
