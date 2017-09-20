@@ -5,12 +5,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'valloric/youcompleteme'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'airblade/vim-gitgutter'
-" Plug 'scrooloose/nerdtree'
-" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Quramy/vim-js-pretty-template'
 
 let g:rainbow_active = 1
