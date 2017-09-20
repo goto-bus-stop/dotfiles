@@ -52,6 +52,13 @@ set hlsearch                  " highlight the search
 set showmatch                 " show matching bracket
 set diffopt=filler,iwhite     " ignore all whitespace and sync
 
+" Undo
+set undofile
+if !isdirectory("/tmp/vimundo")
+  call mkdir("/tmp/vimundo", "", 0700)
+endif
+set undodir=/tmp/vimundo
+
 " Autocomplete
 
 " Statusline
