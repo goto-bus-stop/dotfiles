@@ -8,6 +8,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Quramy/vim-js-pretty-template'
+Plug 'StanAngeloff/php.vim'
 
 let g:rainbow_active = 1
 Plug 'luochen1990/rainbow'
