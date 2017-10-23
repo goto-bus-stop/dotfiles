@@ -3,7 +3,6 @@ set nocompatible
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -60,9 +59,6 @@ endif
 set undodir=/tmp/vimundo
 
 " Autocomplete
-
-" Statusline
-set laststatus=2
 
 " Keymaps
 map <C-n> :NERDTreeToggle<CR>
