@@ -3,6 +3,9 @@
 basedir=$(pwd)
 target=~/.config
 
+mkdir -p ~/.config/git
+ln -s $basedir/gitignore_global ~/.config/git/ignore
+
 mkdir -p ~/.config/i3
 ln -s $basedir/i3/config ~/.config/i3/config
 
