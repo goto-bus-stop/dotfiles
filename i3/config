@@ -172,8 +172,8 @@ exec set-random-wallpaper &
 exec setxkbmap -layout us,us -variant dvp, -option grp:alt_shift_toggle -option compose:ralt
 
 # Things with tabs don't need a border
-exec [class="(?i)firefox"] border none
-exec [class="(?i)chromium"] border none
+for_window [class="(?i)firefox"] border none
+for_window [class="(?i)chromium"] border none
 
 # Services
 # ========
