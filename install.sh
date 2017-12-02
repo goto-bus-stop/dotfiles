@@ -26,3 +26,6 @@ ln -s $basedir/statusbar/index.js ~/.config/statusbar/index.js
 pushd $basedir/statusbar
 npm install
 popd
+
+mkdir -p ~/.config/alacritty
+ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
