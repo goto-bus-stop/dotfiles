@@ -62,4 +62,3 @@ set undodir=/tmp/vimundo
 " Autocomplete
 
 " Keymaps
-map <C-n> :NERDTreeToggle<CR>
