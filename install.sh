@@ -29,3 +29,5 @@ popd
 
 mkdir -p ~/.config/alacritty
 ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+ln -s $basedir/tmux.conf ~/.tmux.conf
