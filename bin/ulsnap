@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Upload the most recent screenshot.
+
+lastscreen | up | xclip -sel c && notify-send "Uploaded"

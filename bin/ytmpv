@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Open a YouTube video in mpv.
+# Uses quality '22' (720p) because that looks alright on my screen.
+# `ytmpv https://youtu.be/whatever`
+
+mpv $(youtube-dl -f 22 -g "$1")

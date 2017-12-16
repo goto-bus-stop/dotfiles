@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Take a screenshot and upload it to imgur.
+
+screen="$(make-screenshot)"
+
+[ $? = 0 ] || { notify-send "Aborted" ; exit 1; };
+
+url=$(imgur < "$screen")
+if [ -n "$url" ]; then
+  notify-send "Uploaded" "$url"
+  echo "$url" | xclip -sel c
+else
+  notify-send "Failed"
+fi

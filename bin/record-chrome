@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Record a chunk of the screen.
+# `record-chrome /path/to/output.avi`
+
+W=1360
+H=666
+X=3
+Y=81
+
+# eval $(slop)
+read -r X Y W H G ID < <(slop -f '%x %y %w %h %g %i')
+
+ffmpeg -f x11grab -y -r 24 -s "$W"x"$H" -i :0.0+$X,$Y -vcodec ffv1 $1

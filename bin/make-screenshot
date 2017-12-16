@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Take a screenshot.
+
+outdir=${SCREENSDIR:-~/Pictures/screenshots}
+
+# Get size by letting user draw a rectangle with `slop`
+result=$(slop -f "%x %y %w %h")
+[ $? = 0 ] || exit 1;
+read -r X Y W H < <(echo $result)
+
+# Take a screenshot of the entire screen
+scrot /tmp/screenshot.png
+
+# Crop the screenshot to the selected area and move it to the screenshots dir
+output="$outdir"/scr_$(date +%Y-%m-%d_%H-%M-%S).png
+convert /tmp/screenshot.png -crop "$W"x"$H"+"$X"+"$Y" png:- | pngquant - >"$output"
+
+# Return the output filename
+echo -n "$output"

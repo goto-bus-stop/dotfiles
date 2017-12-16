@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Take a screenshot and place it on the clipboard.
+
+screen="$(make-screenshot)"
+
+xclip -sel c -t image/png "${screen}"

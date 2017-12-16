@@ -1,0 +1,5 @@
+#!/bin/sh
+
+walldir=${WALLDIR:-~/Pictures/walls}
+
+set-wallpaper $(ls "$walldir"/* | shuf -n1)

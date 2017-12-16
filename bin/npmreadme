@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Read the readme for an npm package.
+
+npm show $1 readme | msee --color

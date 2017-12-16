@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Upload a file to imgur.
+# `imgur < /path/to/file.png`
+
+CLIENT_ID="1e3060a8aacc138"
+
+cat /dev/stdin > /tmp/upfile
+res="$(curl -s --form type=file --form image=@/tmp/upfile -H "Authorization: Client-ID $CLIENT_ID" https://api.imgur.com/3/image)"
+url="$(echo "$res" | jq -r ".data.link")"
+notify-send "Upload successful" "$url"
+echo "$url"
+rm /tmp/upfile

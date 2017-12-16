@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Take a screenshot and store it on IPFS.
+
+screen="$(make-screenshot)"
+
+[ $? = 0 ] || { notify-send "Aborted" ; exit 1; };
+
+objectid="$(ipfs add "$screen" | cut -d' ' -f2)"
+echo "https://gateway.ipfs.io/ipfs/$objectid" \
+  | xclip -sel c \
+  && notify-send "Uploaded" \
+  || notify-send "Aborted"

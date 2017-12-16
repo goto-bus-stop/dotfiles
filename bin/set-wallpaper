@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Set the wallpaper.
+# This also places a resized version of the wallpaper in a well-known location
+# so that it can be used by i3lock.
+# `set-wallpaper /path/to/wallpaper.png`
+
+res="$(get-screen-resolution)"
+hash="$(md5sum "$1" | cut -d' ' -f1).png"
+cache=~/.cache/resized-wallpapers/
+
+mkdir -p $cache
+
+if [ ! -f $cache/$hash ] ; then
+  convert "$1"      \
+    -resize "$res"^ \
+    -gravity center \
+    -extent "$res"  \
+    $cache/$hash
+fi
+
+cp $cache/$hash ~/.currentbg.png
+feh --bg-fill ~/.currentbg.png

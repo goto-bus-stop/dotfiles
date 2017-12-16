@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Take a screenshot and upload it using `up`.
+
+screen="$(make-screenshot)"
+
+[ $? = 0 ] || { notify-send "Aborted" ; exit 1; };
+
+{ up < "$screen" | xclip -sel c; } \
+  || { notify-send "Failed"; exit 1; }
+
+# cat "$screen" \
+#  | up \
+#  | xclip -sel c \
+#  && notify-send "Uploaded" \
+#  || notify-send "Aborted"
