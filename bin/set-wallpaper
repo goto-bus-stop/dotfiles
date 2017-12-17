@@ -7,7 +7,7 @@
 
 res="$(get-screen-resolution)"
 hash="$(md5sum "$1" | cut -d' ' -f1).png"
-cache=~/.cache/resized-wallpapers/
+cache=~/.cache/resized-wallpapers
 
 mkdir -p $cache
 
