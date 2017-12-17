@@ -181,7 +181,6 @@ for_window [tiling] border none
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id redshift
 exec --no-startup-id mpd ~/.config/mpd/mpd.conf
-exec --no-startup-id mpdscribble --conf ~/.config/mpd/mpdscribble.conf
 
 # Keyboard Shortcuts
 # ==================
