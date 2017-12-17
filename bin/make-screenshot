@@ -3,6 +3,7 @@
 # Take a screenshot.
 
 outdir=${SCREENSDIR:-~/Pictures/screenshots}
+mkdir -p "$outdir"
 
 # Get size by letting user draw a rectangle with `slop`
 result=$(slop -f "%x %y %w %h")
