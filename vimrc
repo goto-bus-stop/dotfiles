@@ -29,6 +29,9 @@ autocmd FileType javascript JsPreTmpl html
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css']
 
+" highlight trailing whitespace
+match ErrorMsg '\s\+$'
+
 " Tabs
 set showtabline=2
 
