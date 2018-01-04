@@ -1,13 +1,13 @@
 {
   "dependencies": {
-    "@statusbar/battery": "0.0.3",
-    "@statusbar/date": "0.0.2",
-    "@statusbar/diskusage": "^0.1.0",
+    "@statusbar/battery": "^0.1.0",
+    "@statusbar/date": "^0.1.0",
+    "@statusbar/diskusage": "^0.2.0",
     "@statusbar/i3bar": "0.0.2",
-    "@statusbar/mpd": "0.0.1",
+    "@statusbar/mpd": "^0.1.0",
     "@statusbar/text": "0.0.2",
     "@statusbar/volume": "0.0.2",
-    "@statusbar/whoami": "0.0.1",
-    "@statusbar/wifi": "0.0.2"
+    "@statusbar/whoami": "^0.1.0",
+    "@statusbar/wifi": "^0.1.0"
   }
 }

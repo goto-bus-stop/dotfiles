@@ -10,7 +10,7 @@ const nowPlaying = require('@statusbar/mpd')
 
 bar.use(diskusage('/dev/sda3'))
 bar.use(diskusage({ fs: '/dev/sdb2', label: 'Storage' }))
-bar.use(wifi())
+bar.use(wifi({ device: 'wlp2s0' }))
 // bar.use(brightness())
 bar.use(battery())
 bar.use(volume())
