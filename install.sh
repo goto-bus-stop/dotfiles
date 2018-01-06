@@ -27,6 +27,9 @@ pushd $basedir/statusbar
 npm install
 popd
 
+mkdir -p ~/.config/irssi/scripts
+ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
+
 mkdir -p ~/.config/alacritty
 ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
