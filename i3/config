@@ -169,7 +169,7 @@ bindsym $mod+Delete mode "$mode_system"
 # ==========
 
 exec set-random-wallpaper &
-exec setxkbmap -layout us,us -variant dvp, -option grp:alt_shift_toggle -option compose:ralt
+exec setxkbmap -layout us,us -variant dvp, -option grp:alt_shift_toggle -option compose:ralt -option caps:escape
 
 # Things with tabs don't need a border
 for_window [floating] border normal 1
