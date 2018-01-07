@@ -164,6 +164,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Delete mode "$mode_system"
+bindsym $mod+Escape mode "$mode_system"
 
 # Init stuff
 # ==========
