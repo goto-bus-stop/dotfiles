@@ -207,7 +207,7 @@ bindcode 232 exec xbacklight -dec 10
 
 bar {
   status_command i3status
-  font pango:Dejavu Sans 8
+  font pango:Dejavu Sans Mono 8
   colors {
     separator #666666
     background #000000
