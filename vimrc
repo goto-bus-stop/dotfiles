@@ -27,7 +27,7 @@ call jspretmpl#register_tag('html', 'html')
 call jspretmpl#register_tag('css', 'css')
 autocmd FileType javascript JsPreTmpl html
 
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css', 'php']
 
 " highlight trailing whitespace
 match ErrorMsg '\s\+$'
