@@ -4,15 +4,17 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'StanAngeloff/php.vim'
-Plug 'cespare/vim-toml'
+" Editing
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+" Languages
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'StanAngeloff/php.vim'
+Plug 'cespare/vim-toml'
 
 let g:rainbow_active = 1
 Plug 'luochen1990/rainbow'
