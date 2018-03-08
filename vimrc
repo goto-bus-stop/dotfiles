@@ -10,6 +10,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 let g:rainbow_active = 1
 Plug 'luochen1990/rainbow'
