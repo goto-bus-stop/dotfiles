@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Create a directory and move into it.
-# `mkcd /path/to/directory`
-
-mkdir -p "$1"
-cd "$1"
