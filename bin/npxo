@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# npx, but only from the cache.
+
+npm_config_offline=true npx $@
