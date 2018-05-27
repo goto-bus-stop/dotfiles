@@ -1,11 +1,11 @@
 # Create a directory and move into it.
 # `mkcd /path/to/directory`
-mkcd () {
+mkcd() {
   mkdir -p "$1"
   cd "$1"
 }
 
-cdl () {
+cdl() {
   cd "$1"
   ls
 }
