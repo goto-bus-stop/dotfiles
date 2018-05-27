@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Push the current branch to github and create a pull request.
+
+set -e
+
+BRANCH="${1:-origin}"
+
+git push -u "$BRANCH" HEAD
+hub pull-request
