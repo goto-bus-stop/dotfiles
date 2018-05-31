@@ -52,8 +52,8 @@ set smarttab
 set tabstop=3
 set shiftwidth=2
 
-" Enable line numbers
-set number
+" Disable line numbers
+set nonumber
 
 " Searching
 set incsearch                 " incremental search
