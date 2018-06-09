@@ -3,6 +3,11 @@
 # Clean pacman's package cache to free up some space.
 # https://wiki.archlinux.org/index.php/Pacman#Cleaning_the_package_cache
 
+if ! which paccache 2> /dev/null; then
+  echo "paccache is not available, install pacman-contrib first"
+  exit 1
+fi
+
 # Remove old versions
 paccache -r
 # Remove all versions of uninstalled packages
