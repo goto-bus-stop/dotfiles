@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -e $IRC_SSH ]; then
+  echo 'an $IRC_SSH environment variable must be set'
+  exit 1
+fi
+IRC_SESSION=irc
+
+ssh $IRC_SSH -t tmux attach-session -t $IRC_SESSION
