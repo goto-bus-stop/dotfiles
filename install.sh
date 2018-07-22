@@ -21,12 +21,6 @@ ln -s $basedir/vifmrc ~/.config/vifm/vifmrc
 mkdir -p ~/.config/mpv
 ln -s $basedir/mpv/mpv.conf ~/.config/mpv/mpv.conf
 
-mkdir -p ~/.config/statusbar
-ln -s $basedir/statusbar/index.js ~/.config/statusbar/index.js
-pushd $basedir/statusbar
-npm install
-popd
-
 mkdir -p ~/.irssi/scripts
 ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
 
