@@ -33,4 +33,7 @@ ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
 mkdir -p ~/.config/alacritty
 ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
+mkdir -p ~/.config/streamlink
+ln -s $basedir/streamlink/config ~/.config/streamlink/config
+
 ln -s $basedir/tmux.conf ~/.tmux.conf
