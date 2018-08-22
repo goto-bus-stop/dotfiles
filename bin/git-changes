@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+lasttag="$(git describe --tags --abbrev=0)"
+
+if [ -z $lasttag ]; then
+  # list everything
+  PAGER=cat git log --oneline --no-decorate
+else
+  PAGER=cat git log --oneline --no-decorate ${lasttag}..HEAD
+fi
