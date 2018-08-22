@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+branchnames="$(git branch -v | grep -F '[gone]' | cut -d' ' -f3)"
+
+if [ -n "$branchnames" ]; then
+  git branch -D $branchnames
+fi
