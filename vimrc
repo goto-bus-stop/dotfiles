@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
+Plug 'posva/vim-vue'
 Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
 
