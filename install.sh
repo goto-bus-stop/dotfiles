@@ -31,3 +31,5 @@ mkdir -p ~/.config/streamlink
 ln -s $basedir/streamlink/config ~/.config/streamlink/config
 
 ln -s $basedir/tmux.conf ~/.tmux.conf
+
+git config --global init.templateDir $basedir/git/template
