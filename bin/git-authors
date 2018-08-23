@@ -1,3 +1,8 @@
 #!/bin/bash
 
+# Usage: git authors
+#
+# List names and email addresses of all committers to the current repo.
+# Format: Author Name <email@address.xyz>
+
 git log --format="%aN <%aE>" | sort | uniq

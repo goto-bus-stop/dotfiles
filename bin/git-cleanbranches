@@ -1,5 +1,10 @@
 #!/usr/bin/sh
 
+# Usage: git cleanbranches
+#
+# Force delete all branches that have a remote, but the remote branch has been deleted.
+# Effectively cleans up old PR branches.
+
 branchnames="$(git branch -v | grep -F '[gone]' | cut -d' ' -f3)"
 
 if [ -n "$branchnames" ]; then

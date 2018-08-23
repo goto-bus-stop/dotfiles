@@ -1,5 +1,9 @@
 #!/usr/bin/sh
 
+# Usage: git changes
+#
+# Show commits in the current repo since the most recent tag.
+
 lasttag="$(git describe --tags --abbrev=0)"
 
 if [ -z $lasttag ]; then
