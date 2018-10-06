@@ -18,9 +18,6 @@ Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
 Plug 'dart-lang/dart-vim-plugin'
 
-let g:rainbow_active = 1
-Plug 'luochen1990/rainbow'
-
 call plug#end()
 
 " Show matches when autocompleting file names
