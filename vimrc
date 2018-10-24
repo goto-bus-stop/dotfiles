@@ -32,7 +32,7 @@ call jspretmpl#register_tag('html', 'html')
 call jspretmpl#register_tag('css', 'css')
 autocmd FileType javascript JsPreTmpl html
 
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css', 'php']
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css', 'php', 'typescript']
 let g:javascript_plugin_flow = 1 " Enable flow type highlighting
 
 " highlight trailing whitespace
