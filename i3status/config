@@ -1,0 +1,35 @@
+general {
+        colors = true
+        interval = 1
+        color_good = "#b9ca4a"
+        color_degraded = "#e6c547"
+        color_bad = "#d54e53"
+}
+
+order += "disk /"
+order += "ipv6"
+order += "wireless _first_"
+order += "battery all"
+order += "load"
+order += "tztime local"
+
+wireless _first_ {
+        format_up = "W: (%essid %quality) %ip"
+        format_down = "W: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "%avail"
+}
