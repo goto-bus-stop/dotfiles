@@ -213,13 +213,13 @@ bar {
     separator #666666
     background #1b1b1b
     statusline #eaeaea
-    focused_workspace #4c7899 #7aa6da #1b1b1b
-    active_workspace #333333 #5f676a #eaeaea
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace #2f343a #900000 #eaeaea
+    focused_workspace #7aa6da #7aa6da #1b1b1b
+    active_workspace #5f676a #5f676a #eaeaea
+    inactive_workspace #1b1b1b #1b1b1b #888888
+    urgent_workspace #900000 #900000 #eaeaea
   }
 }
 client.focused #7aa6da #7aa6da #1b1b1b #2e9ef4
 client.focused_inactive #5f676a #5f676a #eaeaea #484e50
-client.unfocused #222222 #222222 #888888 #292d2e
+client.unfocused #1b1b1b #1b1b1b #888888 #292d2e
 client.urgent #900000 #900000 #eaeaea #900000
