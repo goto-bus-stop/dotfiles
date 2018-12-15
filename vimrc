@@ -16,6 +16,7 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'posva/vim-vue'
 Plug 'StanAngeloff/php.vim'
 Plug 'cespare/vim-toml'
+Plug 'SiegeEngineers/vim-aoe2-rms', { 'branch': 'default' }
 Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
