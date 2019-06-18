@@ -6,4 +6,8 @@ if [ -e $IRC_SSH ]; then
 fi
 IRC_SESSION=irc
 
-ssh $IRC_SSH -t tmux attach-session -t $IRC_SESSION
+if [ "${IRC_MOSH:-0}" == "1" ]; then
+  mosh -p "${IRC_PORT:-60001}" -- $IRC_SSH tmux attach-session -t $IRC_SESSION
+else
+  ssh $IRC_SSH -t tmux attach-session -t $IRC_SESSION
+fi
