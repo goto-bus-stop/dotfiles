@@ -19,6 +19,10 @@ Plug 'cespare/vim-toml'
 Plug 'SiegeEngineers/vim-aoe2-rms', { 'branch': 'default' }
 Plug 'dart-lang/dart-vim-plugin'
 
+" Language server support
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
 call plug#end()
 
 " Show matches when autocompleting file names
@@ -72,3 +76,13 @@ set undodir=/tmp/vimundo
 " Autocomplete
 
 " Keymaps
+
+" Language servers
+
+if executable("rls")
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
