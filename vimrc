@@ -19,6 +19,7 @@ Plug 'cespare/vim-toml'
 Plug 'SiegeEngineers/vim-aoe2-rms', { 'branch': 'default' }
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'ziglang/zig.vim'
+Plug 'udalov/kotlin-vim'
 
 " Language server support
 Plug 'prabirshrestha/async.vim'
