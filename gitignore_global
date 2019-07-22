@@ -4,3 +4,5 @@
 *.swp
 node_modules
 composer.phar
+.ccls-cache
+compile_commands.json
