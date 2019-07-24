@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+# CMake wrapper
+
+DEFAULT_ARGS=-DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+BUILD_TYPE=Debug
+BUILD_DIR=build
+if [ "$1" == "release" ]; then BUILD_TYPE=Release; fi
+
+cmake -B ${BUILD_DIR} -G Ninja ${DEFAULT_ARGS} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} && \
+cmake --build ${BUILD_DIR}
