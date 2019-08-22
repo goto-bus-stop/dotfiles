@@ -11,7 +11,7 @@ result=$(slop -f "%x %y %w %h")
 read -r X Y W H < <(echo $result)
 
 # Take a screenshot of the entire screen
-scrot /tmp/screenshot.png
+scrot -o /tmp/screenshot.png
 
 # Crop the screenshot to the selected area and move it to the screenshots dir
 output="$outdir"/scr_$(date +%Y-%m-%d_%H-%M-%S).png
