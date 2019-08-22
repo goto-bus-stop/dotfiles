@@ -178,7 +178,6 @@ for_window [tiling] border none
 
 exec --no-startup-id syncthing -no-browser
 exec --no-startup-id redshift
-exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 exec --no-startup-id dunst
 exec --no-startup-id "which unclutter && unclutter"
 
@@ -189,9 +188,9 @@ exec --no-startup-id "which unclutter && unclutter"
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-bindsym XF86AudioPlay exec "mpc toggle"
-bindsym XF86AudioPrev exec "mpc prev"
-bindsym XF86AudioNext exec "mpc next"
+# bindsym XF86AudioPlay exec "mpc toggle"
+# bindsym XF86AudioPrev exec "mpc prev"
+# bindsym XF86AudioNext exec "mpc next"
 
 # Lock the screen. Ctrl+Shift+A is easy to hit with one hand
 bindsym $mod+shift+A exec lock
