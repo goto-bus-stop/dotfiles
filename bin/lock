@@ -2,6 +2,10 @@
 
 # Lock the screen and shut off the display.
 
-i3lock --image ~/.currentbg.png
+if [ -f ~/.currentbg.png ]; then
+  i3lock --image ~/.currentbg.png
+else
+  i3lock
+fi
 
 xset dpms force off
