@@ -84,6 +84,14 @@ set undodir=/tmp/vimundo
 
 " Language servers
 
+if executable("javascript-typescript-stdio")
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript-typescript-stdio',
+        \ 'cmd': {server_info->['javascript-typescript-stdio']},
+        \ 'whitelist': ['typescript'],
+        \ })
+endif
+
 if executable("rls")
   au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
