@@ -5,4 +5,5 @@
 node_modules
 composer.phar
 .ccls-cache
+.ccls-root
 compile_commands.json
