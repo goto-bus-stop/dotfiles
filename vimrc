@@ -88,7 +88,7 @@ if executable("javascript-typescript-stdio")
   au User lsp_setup call lsp#register_server({
         \ 'name': 'javascript-typescript-stdio',
         \ 'cmd': {server_info->['javascript-typescript-stdio']},
-        \ 'whitelist': ['typescript'],
+        \ 'whitelist': ['javascript', 'typescript'],
         \ })
 endif
 
