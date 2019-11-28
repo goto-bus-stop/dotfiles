@@ -92,7 +92,13 @@ if executable("javascript-typescript-stdio")
         \ })
 endif
 
-if executable("rls")
+if executable("ra_lsp_server")
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'ra_lsp_server',
+        \ 'cmd': {server_info->['ra_lsp_server']},
+        \ 'whitelist': ['rust'],
+        \ })
+elseif executable("rls")
   au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
         \ 'cmd': {server_info->['rls']},
