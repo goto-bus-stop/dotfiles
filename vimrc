@@ -94,10 +94,10 @@ if executable("javascript-typescript-stdio")
         \ })
 endif
 
-if executable("ra_lsp_server")
+if executable("rust-analyzer")
   au User lsp_setup call lsp#register_server({
-        \ 'name': 'ra_lsp_server',
-        \ 'cmd': {server_info->['ra_lsp_server']},
+        \ 'name': 'rust-analyzer',
+        \ 'cmd': {server_info->['rust-analyzer']},
         \ 'whitelist': ['rust'],
         \ })
 elseif executable("rls")
