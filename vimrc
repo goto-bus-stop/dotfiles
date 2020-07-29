@@ -117,3 +117,11 @@ if executable('ccls')
         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
         \ })
 endif
+
+if executable('jdtls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'jdtls',
+        \ 'cmd': {server_info->['jdtls']},
+        \ 'whitelist': ['java'],
+        \ })
+endif
