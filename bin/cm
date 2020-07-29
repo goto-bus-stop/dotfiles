@@ -3,7 +3,7 @@
 # CMake wrapper
 
 DEFAULT_ARGS=-DCMAKE_EXPORT_COMPILE_COMMANDS=YES
-BUILD_TYPE=Debug
+BUILD_TYPE=${CMAKE_BUILD_TYPE:=Debug}
 BUILD_DIR=build
 if [ "$1" == "x" ]; then
   GCC=`which i686-w64-mingw32-gcc`
@@ -13,7 +13,7 @@ if [ "$1" == "x" ]; then
 fi
 if [ "$1" == "release" ]; then BUILD_TYPE=Release; shift; fi
 
-echo cmake -B ${BUILD_DIR} -G Ninja ${DEFAULT_ARGS} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${ARGS}
+echo cmake -B ${BUILD_DIR} -G Ninja ${DEFAULT_ARGS} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} $@
 
-cmake -B ${BUILD_DIR} -G Ninja ${DEFAULT_ARGS} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${ARGS} && \
+cmake -B ${BUILD_DIR} -G Ninja ${DEFAULT_ARGS} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} $@ && \
 cmake --build ${BUILD_DIR}
