@@ -1,21 +1,23 @@
 add_newline = false
+prompt_order = [
+  "username",
+  "hostname",
+  "directory",
+  "git_branch",
+  "git_state",
+  "git_status",
+  "cmd_duration",
+  "character"
+]
 
 [character]
 symbol = ">"
 
-[package]
-disabled = true
-
+# minimal branch
 [git_branch]
 symbol = ""
 prefix = "("
 suffix = ")"
 
-[nodejs]
-disabled = true
-
-[line_break]
-disabled = true
-
-[aws]
-disabled = true
+[cmd_duration]
+prefix = "⌚"
