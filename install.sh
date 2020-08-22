@@ -33,6 +33,9 @@ ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 mkdir -p ~/.config/streamlink
 ln -s $basedir/streamlink/config ~/.config/streamlink/config
 
+mkdir -p ~/.config/starship
+ln -s $basedir/starship/starship.toml ~/.config/starship.toml
+
 ln -s $basedir/tmux.conf ~/.tmux.conf
 
 git config --global init.templateDir $basedir/git/template

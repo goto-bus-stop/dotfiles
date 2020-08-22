@@ -1,0 +1,21 @@
+add_newline = false
+
+[character]
+symbol = ">"
+
+[package]
+disabled = true
+
+[git_branch]
+symbol = ""
+prefix = "("
+suffix = ")"
+
+[nodejs]
+disabled = true
+
+[line_break]
+disabled = true
+
+[aws]
+disabled = true
