@@ -1,23 +1,14 @@
 add_newline = false
-prompt_order = [
-  "username",
-  "hostname",
-  "directory",
-  "git_branch",
-  "git_state",
-  "git_status",
-  "cmd_duration",
-  "character"
-]
+format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$character"
 
 [character]
-symbol = ">"
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
 
 # minimal branch
 [git_branch]
 symbol = ""
-prefix = "("
-suffix = ")"
+format = "[\\($branch\\)]($style) "
 
 [cmd_duration]
-prefix = "⌚"
+format = "[⌚$duration]($style) "
