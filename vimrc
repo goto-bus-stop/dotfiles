@@ -86,11 +86,12 @@ set undodir=/tmp/vimundo
 
 " Language servers
 
-if executable("javascript-typescript-stdio")
+if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
-        \ 'name': 'javascript-typescript-stdio',
-        \ 'cmd': {server_info->['javascript-typescript-stdio']},
-        \ 'whitelist': ['javascript', 'typescript'],
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript']
         \ })
 endif
 
