@@ -15,16 +15,17 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Languages
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'posva/vim-vue'
-Plug 'StanAngeloff/php.vim'
-Plug 'cespare/vim-toml'
-Plug 'SiegeEngineers/vim-aoe2-rms', { 'branch': 'default' }
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'ziglang/zig.vim'
-Plug 'udalov/kotlin-vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'evanleck/vim-svelte', { 'for': 'svelte' }
+Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript', 'typescript'] }
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'SiegeEngineers/vim-aoe2-rms', { 'for': 'rms', 'branch': 'default' }
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'ziglang/zig.vim', { 'for': 'zig' }
+Plug 'udalov/kotlin-vim', { 'for': 'kt' }
 
 " Language server support
 Plug 'prabirshrestha/async.vim'
@@ -40,8 +41,8 @@ filetype on
 filetype indent on
 filetype plugin on
 syntax enable
-call jspretmpl#register_tag('html', 'html')
-call jspretmpl#register_tag('css', 'css')
+autocmd! User vim-js-pretty-template call jspretmpl#register_tag('html', 'html')
+autocmd! User vim-js-pretty-template call jspretmpl#register_tag('css', 'css')
 autocmd FileType javascript JsPreTmpl
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'js=javascript', 'css', 'php', 'typescript', 'c', 'cpp']
