@@ -21,6 +21,7 @@ Plug 'evanleck/vim-svelte', { 'for': 'svelte' }
 Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript', 'typescript'] }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'phpactor/phpactor', { 'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'SiegeEngineers/vim-aoe2-rms', { 'for': 'rms', 'branch': 'default' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
