@@ -29,8 +29,12 @@ Plug 'ziglang/zig.vim', { 'for': 'zig' }
 Plug 'udalov/kotlin-vim', { 'for': 'kt' }
 
 " Language server support
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+else
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+endif
 
 call plug#end()
 
@@ -88,43 +92,98 @@ set undodir=/tmp/vimundo
 
 " Language servers
 
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript']
-        \ })
-endif
+if has('nvim')
+  lua << EOF
+    local lsp = require('lspconfig')
+    local eslint = {
+      lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
+      lintStdin = true,
+      lintFormats = {'%f:%l:%c: %m'},
+      lintIgnoreExitCode = true,
+      formatCommand = 'eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}',
+      formatStdin = true
+    }
 
-if executable("rust-analyzer")
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'rust-analyzer',
-        \ 'cmd': {server_info->['rust-analyzer']},
-        \ 'whitelist': ['rust'],
-        \ })
-elseif executable("rls")
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+    lsp.rust_analyzer.setup {}
+    lsp.tsserver.setup {
+      on_attach = function(client)
+        if client.config.flags then
+          client.config.flags.allow_incremental_sync = true
+        end
+        client.resolved_capabilities.document_formatting = false
+      end
+    }
+    lsp.efm.setup {
+      on_attach = function(client)
+        client.resolved_capabilities.document_formatting = true
+        client.resolved_capabilities.goto_definition = false
+      end,
+      root_dir = function()
+        local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
+        if vim.tbl_isempty(eslintrc) then
+          return nil
+        end
+        return vim.fn.getcwd()
+      end,
+      settings = {
+        languages = {
+          javascript = {eslint},
+          javascriptreact = {eslint},
+          ['javascript.jsx'] = {eslint},
+          typescript = {eslint},
+          ['typescript.tsx'] = {eslint},
+          typescriptreact = {eslint}
+        }
+      },
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescript.tsx',
+        'typescriptreact'
+      },
+    }
+EOF
+else
+  if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'typescript-language-server',
+          \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+          \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+          \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact', 'typescript']
+          \ })
+  endif
 
-if executable('ccls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'ccls',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ccls -log-file=/tmp/ccls.log -v=1']},
-        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.ccls-root'))},
-        \ 'initialization_options': { 'cache': { 'directory': expand('~/.cache/ccls') }, 'compilationDatabaseDirectory': 'build' },
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-        \ })
-endif
+  if executable("rust-analyzer")
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'rust-analyzer',
+          \ 'cmd': {server_info->['rust-analyzer']},
+          \ 'whitelist': ['rust'],
+          \ })
+  elseif executable("rls")
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'rls',
+          \ 'cmd': {server_info->['rls']},
+          \ 'whitelist': ['rust'],
+          \ })
+  endif
 
-if executable('jdtls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'jdtls',
-        \ 'cmd': {server_info->['jdtls']},
-        \ 'whitelist': ['java'],
-        \ })
+  if executable('ccls')
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'ccls',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'ccls -log-file=/tmp/ccls.log -v=1']},
+          \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.ccls-root'))},
+          \ 'initialization_options': { 'cache': { 'directory': expand('~/.cache/ccls') }, 'compilationDatabaseDirectory': 'build' },
+          \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+          \ })
+  endif
+
+  if executable('jdtls')
+    au User lsp_setup call lsp#register_server({
+          \ 'name': 'jdtls',
+          \ 'cmd': {server_info->['jdtls']},
+          \ 'whitelist': ['java'],
+          \ })
+  endif
 endif
