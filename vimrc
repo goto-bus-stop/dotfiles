@@ -107,11 +107,16 @@ if has('nvim')
 
     lsp.rust_analyzer.setup {}
     lsp.tsserver.setup {
-      on_attach = function(client)
+      on_attach = function(client, bufnr)
         if client.config.flags then
           client.config.flags.allow_incremental_sync = true
         end
         client.resolved_capabilities.document_formatting = false
+
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
       end
     }
     lsp.efm.setup {
