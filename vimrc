@@ -30,6 +30,7 @@ Plug 'udalov/kotlin-vim', { 'for': 'kt' }
 
 " Language server support
 if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'neovim/nvim-lspconfig'
 else
   Plug 'prabirshrestha/async.vim'
@@ -143,6 +144,11 @@ if has('nvim')
         'typescript.tsx',
         'typescriptreact'
       },
+    }
+
+    require('nvim-treesitter.configs').setup {
+      highlight = { enable = true },
+      indent = { enable = true }
     }
 EOF
 else
