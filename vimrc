@@ -105,7 +105,18 @@ if has('nvim')
       formatStdin = true
     }
 
-    lsp.rust_analyzer.setup {}
+    local keybinds = function(bufnr)
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
+      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+    end
+
+    lsp.rust_analyzer.setup {
+      on_attach = function(client, bufnr)
+        keybinds(bufnr)
+      end
+    }
     lsp.tsserver.setup {
       on_attach = function(client, bufnr)
         if client.config.flags then
@@ -113,10 +124,7 @@ if has('nvim')
         end
         client.resolved_capabilities.document_formatting = false
 
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+        keybinds(bufnr)
       end
     }
     lsp.efm.setup {
@@ -149,6 +157,11 @@ if has('nvim')
         'typescript.tsx',
         'typescriptreact'
       },
+    }
+    lsp.phpactor.setup {
+      on_attach = function(client, bufnr)
+        keybinds(bufnr)
+      end
     }
 
     require('nvim-treesitter.configs').setup {
