@@ -106,10 +106,11 @@ if has('nvim')
     }
 
     local keybinds = function(bufnr)
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
-      vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { noremap = true, silent = true })
+      vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { noremap = true, silent = true })
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true })
+      vim.keymap.set('n', 'gR', vim.lsp.buf.rename, { noremap = true, silent = true })
     end
 
     lsp.rust_analyzer.setup {
