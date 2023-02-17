@@ -9,7 +9,6 @@ let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal 
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'airblade/vim-gitgutter'
 " Editing
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
