@@ -26,6 +26,7 @@ Plug 'SiegeEngineers/vim-aoe2-rms', { 'for': 'rms', 'branch': 'default' }
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'ziglang/zig.vim', { 'for': 'zig' }
 Plug 'udalov/kotlin-vim', { 'for': 'kt' }
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
 " Language server support
 if has('nvim')
