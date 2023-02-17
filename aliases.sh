@@ -16,8 +16,8 @@ alias mkcd=_mkcd
 alias cdl=_cdl
 
 # this is "git checkout master" by default in oh-my-zsh
-# but i like to use the `default` branch name
-alias gcm="git checkout master 2>/dev/null || git checkout default"
+# but main/default are more common branch names now : )
+alias gcm="git checkout main 2>/dev/null || git checkout default"
 
 if which exa > /dev/null; then
   alias l="exa -l"
