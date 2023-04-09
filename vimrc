@@ -119,7 +119,7 @@ if has('nvim')
     lsp.rust_analyzer.setup {
       on_attach = function(client, bufnr)
         keybinds(bufnr)
-        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
+        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
       end
     }
     lsp.tsserver.setup {
