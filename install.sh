@@ -18,9 +18,6 @@ ln -s $basedir/dunstrc ~/.config/dunst/dunstrc
 mkdir -p ~/.config/vim
 ln -s $basedir/vimrc ~/.vimrc
 
-mkdir -p ~/.config/vifm
-ln -s $basedir/vifmrc ~/.config/vifm/vifmrc
-
 mkdir -p ~/.config/mpv
 ln -s $basedir/mpv/mpv.conf ~/.config/mpv/mpv.conf
 
@@ -29,9 +26,6 @@ ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
 
 mkdir -p ~/.config/alacritty
 ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-
-mkdir -p ~/.config/streamlink
-ln -s $basedir/streamlink/config ~/.config/streamlink/config
 
 mkdir -p ~/.config/starship
 ln -s $basedir/starship/starship.toml ~/.config/starship.toml
