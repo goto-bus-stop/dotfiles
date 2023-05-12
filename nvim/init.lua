@@ -113,6 +113,17 @@ lsp.phpactor.setup {
 }
 
 require('nvim-treesitter.configs').setup {
+	ensure_installed = {
+		'javascript',
+		'tsx',
+		'typescript',
+		'html',
+		'css',
+		'vue',
+		'json',
+		'markdown',
+		'rust',
+	},
 	highlight = { enable = true },
 	indent = { enable = true }
 }
