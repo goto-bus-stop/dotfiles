@@ -25,7 +25,7 @@ mkdir -p ~/.irssi/scripts
 ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
 
 mkdir -p ~/.config/alacritty
-ln -s $basedir/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s $basedir/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 mkdir -p ~/.config/starship
 ln -s $basedir/starship/starship.toml ~/.config/starship.toml
