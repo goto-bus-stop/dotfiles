@@ -569,18 +569,9 @@ chars = "\u001B[24;3~"
 key = "F12"
 mods = "Super"
 
-[mouse]
-hide_cursor_when_typing = false
-
 [[mouse.bindings]]
 action = "PasteSelection"
 mouse = "Middle"
-
-[mouse.double_click]
-threshold = 300
-
-[mouse.triple_click]
-threshold = 300
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
