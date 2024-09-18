@@ -19,6 +19,6 @@ alias cdl=_cdl
 # but main/default are more common branch names now : )
 alias gcm="git checkout main 2>/dev/null || git checkout default"
 
-if which exa > /dev/null; then
-  alias l="exa -l"
+if which eza > /dev/null; then
+  alias l="eza -l"
 fi
