@@ -116,6 +116,7 @@ require('nvim-treesitter.configs').setup {
 		'json',
 		'markdown',
 		'rust',
+		'glsl',
 	},
 	highlight = { enable = true },
 	indent = { enable = true }
