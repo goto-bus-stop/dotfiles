@@ -44,64 +44,25 @@ local eslint = {
 	formatStdin = true
 }
 
-local keybinds = function(bufnr)
-	vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { noremap = true, silent = true })
-	vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { noremap = true, silent = true })
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
-	vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true })
-	vim.keymap.set('n', 'gR', vim.lsp.buf.rename, { noremap = true, silent = true })
-	vim.keymap.set('n', 'gA', vim.lsp.buf.code_action, { noremap = true, silent = true })
-end
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+	callback = function(ev)
+		vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, { noremap = true, silent = true })
+		vim.keymap.set('n', 'gD', vim.lsp.buf.definition, { noremap = true, silent = true })
+		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
+		vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
+		vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true })
+		vim.keymap.set('n', 'gR', vim.lsp.buf.rename, { noremap = true, silent = true })
+		vim.keymap.set('n', 'gA', vim.lsp.buf.code_action, { noremap = true, silent = true })
+	end
+})
 
-lsp.tsserver.setup {
+lsp.ts_ls.setup {
 	on_attach = function(client, bufnr)
 		if client.config.flags then
 			client.config.flags.allow_incremental_sync = true
 		end
 		client.server_capabilities.document_formatting = false
-
-		keybinds(bufnr)
-	end
-}
-lsp.efm.setup {
-	on_attach = function(client)
-		client.server_capabilities.document_formatting = true
-		client.server_capabilities.goto_definition = false
-	end,
-	root_dir = function()
-		local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-		if vim.tbl_isempty(eslintrc) then
-			return nil
-		end
-		return vim.fn.getcwd()
-	end,
-	settings = {
-		languages = {
-			javascript = {eslint},
-			javascriptreact = {eslint},
-			['javascript.jsx'] = {eslint},
-			typescript = {eslint},
-			['typescript.tsx'] = {eslint},
-			typescriptreact = {eslint}
-		}
-	},
-	filetypes = {
-		'javascript',
-		'javascriptreact',
-		'javascript.jsx',
-		'typescript',
-		'typescript.tsx',
-		'typescriptreact'
-	},
-}
-lsp.cssls.setup {
-	on_attach = function(client, bufnr)
-		keybinds(bufnr)
-	end
-}
-lsp.phpactor.setup {
-	on_attach = function(client, bufnr)
-		keybinds(bufnr)
 	end
 }
 
