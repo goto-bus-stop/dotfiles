@@ -21,7 +21,7 @@ require('lazy').setup({
 
 	'nvim-treesitter/nvim-treesitter',
 	'neovim/nvim-lspconfig',
-	'simrat39/rust-tools.nvim',
+	'mrcjkb/rustaceanvim',
 
 	'hrsh7th/cmp-nvim-lsp',
 	'hrsh7th/cmp-buffer',
@@ -35,7 +35,6 @@ require('lazy').setup({
 vim.cmd 'colorscheme dracula'
 
 local lsp = require('lspconfig')
-local rt = require('rust-tools')
 local eslint = {
 	lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
 	lintStdin = true,
@@ -54,15 +53,6 @@ local keybinds = function(bufnr)
 	vim.keymap.set('n', 'gA', vim.lsp.buf.code_action, { noremap = true, silent = true })
 end
 
-rt.setup {
-	server = {
-		cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
-		on_attach = function(client, bufnr)
-			keybinds(bufnr)
-			vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-		end
-	}
-}
 lsp.tsserver.setup {
 	on_attach = function(client, bufnr)
 		if client.config.flags then
