@@ -33,6 +33,12 @@ require('lazy').setup({
 })
 
 vim.cmd 'colorscheme dracula'
+local undodir = vim.fn.expand('$HOME/.local/state/nvim/undodir')
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, 'p')
+end
+vim.opt.undodir = undodir
+vim.opt.undofile = true
 
 local lsp = require('lspconfig')
 local eslint = {
