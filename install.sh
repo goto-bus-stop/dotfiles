@@ -21,9 +21,6 @@ ln -s $basedir/vimrc ~/.vimrc
 mkdir -p ~/.config/mpv
 ln -s $basedir/mpv/mpv.conf ~/.config/mpv/mpv.conf
 
-mkdir -p ~/.irssi/scripts
-ln -s $basedir/irssi/scripts/notify.pl ~/.irssi/scripts/notify.pl
-
 mkdir -p ~/.config/alacritty
 ln -s $basedir/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 

@@ -6,7 +6,6 @@ some simple, low-customization dotfiles for:
 - dunst, for notifications
 - git, for git stuff
 - i3, window manager
-- irssi, for chats
 - mpv, for video
 - neovim, for text editing
 - tmux, for not using the window manager
