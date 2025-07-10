@@ -90,6 +90,7 @@ require('nvim-treesitter.configs').setup {
 		'markdown',
 		'rust',
 		'glsl',
+		'graphql',
 	},
 	highlight = { enable = true },
 	indent = { enable = true }
