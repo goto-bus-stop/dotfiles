@@ -46,6 +46,14 @@ end
 vim.opt.undodir = undodir
 vim.opt.undofile = true
 
+vim.g.rustaceanvim = {
+	default_settings = {
+		['rust-analyzer'] = {
+			checkOnSave = false
+		}
+	}
+}
+
 local lsp = require('lspconfig')
 local eslint = {
 	lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
