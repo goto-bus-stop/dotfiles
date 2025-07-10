@@ -32,6 +32,12 @@ require('lazy').setup({
 	'hrsh7th/vim-vsnip',
 })
 
+vim.filetype.add({
+	extension = {
+		mdx = 'markdown'
+	}
+})
+
 vim.cmd 'colorscheme dracula'
 local undodir = vim.fn.expand('$HOME/.local/state/nvim/undodir')
 if vim.fn.isdirectory(undodir) == 0 then
