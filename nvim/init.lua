@@ -54,7 +54,6 @@ vim.g.rustaceanvim = {
 	}
 }
 
-local lsp = require('lspconfig')
 local eslint = {
 	lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
 	lintStdin = true,
@@ -77,14 +76,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end
 })
 
-lsp.ts_ls.setup {
+vim.lsp.config('ts_ls', {
 	on_attach = function(client, bufnr)
 		if client.config.flags then
 			client.config.flags.allow_incremental_sync = true
 		end
 		client.server_capabilities.document_formatting = false
 	end
-}
+})
 
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {
