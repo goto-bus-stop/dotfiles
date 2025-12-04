@@ -1,5 +1,5 @@
 add_newline = false
-format = "$time$username$hostname:$directory$git_branch$git_state$git_status$cmd_duration$character"
+format = "$time($username$hostname:)$directory$git_branch$git_state$git_status$cmd_duration$character"
 
 [character]
 success_symbol = "[>](bold green)"
