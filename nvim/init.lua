@@ -84,6 +84,7 @@ vim.lsp.config('ts_ls', {
 		client.server_capabilities.document_formatting = false
 	end
 })
+vim.lsp.enable('ts_ls')
 
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {
