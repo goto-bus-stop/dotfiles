@@ -19,7 +19,30 @@ require('lazy').setup({
 	'tpope/vim-commentary',
 	'tpope/vim-surround',
 
-	'nvim-treesitter/nvim-treesitter',
+	{
+		'nvim-treesitter/nvim-treesitter',
+		branch = 'main',
+		lazy = false,
+		build = ':TSUpdate',
+		opts = {
+			highlight = { enable = true },
+			indent = { enable = true },
+			folds = { enable = true },
+			ensure_installed = {
+				'javascript',
+				'tsx',
+				'typescript',
+				'html',
+				'css',
+				'vue',
+				'json',
+				'markdown',
+				'rust',
+				'glsl',
+				'graphql',
+			},
+		},
+	},
 	'neovim/nvim-lspconfig',
 	'mrcjkb/rustaceanvim',
 
@@ -85,24 +108,6 @@ vim.lsp.config('ts_ls', {
 	end
 })
 vim.lsp.enable('ts_ls')
-
-require('nvim-treesitter.configs').setup {
-	ensure_installed = {
-		'javascript',
-		'tsx',
-		'typescript',
-		'html',
-		'css',
-		'vue',
-		'json',
-		'markdown',
-		'rust',
-		'glsl',
-		'graphql',
-	},
-	highlight = { enable = true },
-	indent = { enable = true }
-}
 
 local cmp = require('cmp')
 
