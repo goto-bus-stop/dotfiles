@@ -19,31 +19,6 @@ require('lazy').setup({
 	'tpope/vim-commentary',
 	'tpope/vim-surround',
 
-	{
-		'nvim-treesitter/nvim-treesitter',
-		branch = 'main',
-		lazy = false,
-		build = ':TSUpdate',
-		opts = {
-			highlight = { enable = true },
-			indent = { enable = true },
-			folds = { enable = true },
-			ensure_installed = {
-				'javascript',
-				'tsx',
-				'typescript',
-				'html',
-				'css',
-				'vue',
-				'json',
-				'markdown',
-				'rust',
-				'glsl',
-				'graphql',
-			},
-		},
-	},
-	'neovim/nvim-lspconfig',
 	'mrcjkb/rustaceanvim',
 
 	'hrsh7th/cmp-nvim-lsp',
@@ -99,15 +74,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end
 })
 
-vim.lsp.config('ts_ls', {
-	on_attach = function(client, bufnr)
-		if client.config.flags then
-			client.config.flags.allow_incremental_sync = true
-		end
-		client.server_capabilities.document_formatting = false
-	end
-})
+vim.lsp.config['jsonls'] = {
+	settings = {
+		filetypes = { 'json', 'json5' },
+		json = {
+			-- schemas = require('schemastore').json.schemas(),
+			validate = { enable = true },
+		},
+	},
+}
 vim.lsp.enable('ts_ls')
+vim.lsp.enable('jsonls')
 
 local cmp = require('cmp')
 
